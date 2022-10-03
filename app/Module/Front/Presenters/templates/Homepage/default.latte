@@ -2,14 +2,9 @@
 <br>
 <div class="row">
     {if $user->isLoggedIn()}
-    <h2>Uživatelé: </h2>
-    {foreach $profiles as $profile}
-    <a n:href="User:detail $profile['id']"><div class="users">
-    <div class="post col-3 col-sm-6 col-md-4 mb-1 border rounded border-dark rouned-1 pb-3"><h2>{$profile["username"]}</h2>
-    </div></a>
+    <a n:href="Character:Create" class="tlacitko">Vytvořit charakter</a>
     {else}
-    <h1>Přihlaste se prosím</h1>
-	{/foreach}
+    <h1>Přihlaste se</h1>
     {/if}
     </div>
 </div>

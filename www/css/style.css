@@ -19,3 +19,30 @@
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgb(9, 109, 0) 0%, rgba(134,0,0,1) 100%);
 }
+.homelogo {
+    width: 75px;
+    height: 75px;
+    padding: 75px;
+    border: solid 2 white;
+    background-image: url("../image/kaja.png");
+    background-position: center;
+    background-size: cover;
+}
+.homelogo:hover {
+    transition: all 1s ease;
+    background-image: url("../image/kaja2.jpeg");
+}
+.tlacitko {
+    width: 75px;
+    height: 130px;
+    padding: 230px;
+    border: solid 2 white;
+    background-image: url("../image/button.png");
+    background-position: center;
+    background-size: cover;
+    color: white;
+}
+.tlacitko:hover {
+    transition: all 1s ease;
+    color: black;
+}
