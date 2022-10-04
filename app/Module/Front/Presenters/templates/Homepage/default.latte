@@ -1,10 +1,12 @@
 {block content}
 <br>
+<div class="container">
 <div class="row">
     {if $user->isLoggedIn()}
-    <button class="custom-btn"><a n:href="Character:Create" class=""><h2>Vytvořit charakter</h2></a><buttosn>
+    <div class="custom-btn"><a n:href="Character:Create" class=""><h2>Vytvořit charakter</h2></a>
     {else}
-    <h1>Přihlaste se</h1>
+    <h1>Přihlaste se prosím</h1>
     {/if}
     </div>
+</div>
 </div>
