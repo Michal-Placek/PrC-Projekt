@@ -11,11 +11,11 @@
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(69,0,0,1) 100%);
 }
-.prihlasit {
+.grep {
     background: rgb(100,0,107);
     background: linear-gradient(0deg, rgba(100,0,107,1) 0%, rgba(134,0,0,1) 100%);
 }
-.registrovat {
+.meloun {
     background: rgb(0, 0, 0);
     background: linear-gradient(0deg, rgb(9, 109, 0) 0%, rgba(134,0,0,1) 100%);
 }
@@ -32,17 +32,31 @@
     transition: all 1s ease;
     background-image: url("../image/kaja2.jpeg");
 }
-.tlacitko {
-    width: 75px;
-    height: 130px;
-    padding: 230px;
-    border: solid 2 white;
-    background-image: url("../image/button.png");
-    background-position: center;
-    background-size: cover;
-    color: white;
+.custom-btn {
+    border: none;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 15%, 100% 85%, 70% 100%, 30% 100%, 0 85%, 0 15%);
+    background: url("../image/custom-btn.png");
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:26px;
+	padding:26px 76px;
+	text-decoration:none;
 }
-.tlacitko:hover {
+.custom-btn:hover {
     transition: all 1s ease;
     color: black;
+}
+.marginkokot {
+    margin:auto;
+}
+.nazev {
+    width: 600px;
+    height: 40px;
+    padding: 75px;
+    border: solid 2 white;
+    background-image: url("../image/nazev.png");
+    background-position: center;
+    background-size: cover;
 }

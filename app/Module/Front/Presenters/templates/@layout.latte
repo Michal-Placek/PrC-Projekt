@@ -23,14 +23,17 @@
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           <li><a n:href="Homepage:default" class="homelogo nav-link px-2 text-white"></a></li>
         </ul>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a n:href="Homepage:default" class="nazev nav-link px-2 text-white"></a></li>
+        </ul>
 
       <div class="text-end">
         {if $user->isLoggedIn()}
-		<a n:href="Sign:out"><button type="button" class="btn prihlasit text-light">Odhlásit</button></a>
-		<a n:href="Sign:account"><button type="button" class="btn registrovat text-light">Upravit Účet</button></a>
+		<a n:href="Sign:out"><button type="button" class="btn grep text-light">Odhlásit</button></a>
+		<a n:href="Sign:account"><button type="button" class="btn meloun text-light">Upravit Účet</button></a>
 		{else}
-        <a n:href="Sign:in"><button type="button" class="btn prihlasit text-light">Přihlásit</button></a>
-        <a n:href="Sign:up"><button type="button" class="btn registrovat text-light">Registrovat</button></a>
+        <a n:href="Sign:in"><button type="button" class="btn grep text-light">Přihlásit</button></a>
+        <a n:href="Sign:up"><button type="button" class="btn meloun text-light">Registrovat</button></a>
 		{/if}
 
       </div>
