@@ -3,7 +3,7 @@
 <div class="container">
 <div class="row">
     {if $user->isLoggedIn()}
-    <div class="custom-btn"><a n:href="Character:Create" class=""><h2>Vytvořit charakter</h2></a>
+    <div class="custom-btn"><a n:href="Character:Create" class=""><img src="{$basePath}/image/create.png" width="380px" style="image-rendering:pixelated;"></a>
     {else}
     <h1>Přihlaste se prosím</h1>
     {/if}
