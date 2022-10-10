@@ -23,21 +23,22 @@ final class CharacterPresenter extends Nette\Application\UI\Presenter
     }
 
     public function createComponentNewCharacterForm(): Form
-{
-	$form = new Form;
-	$form->addText('name', 'Jméno Postavy:')
-		->setRequired('Prosím vyplňte jméno posttavy.');
-	
-	$form->addSubmit('send', 'Vytvořit');
-	$form->onSuccess[] = [$this, 'onNewCharacterCreated'];
-	return $form;
-}
-public function onNewCharacterCreated(Form $form, \stdClass $data)
-{
-	$this->characterFacade->addChar($data->name);
+	{
+		$form = new Form;
+		$form->addText('name', 'Jméno Postavy:')
+			->setRequired('Prosím vyplňte jméno posttavy.');
+		
+		$form->addSubmit('send', 'Vytvořit');
+		$form->onSuccess[] = [$this, 'onNewCharacterCreated'];
+		return $form;
+	}
 
-	$this->flashMessage('Postava byla úspěšně vytvořena');
-	$this->redirect('Homepage:');
-}
+	public function onNewCharacterCreated(Form $form, \stdClass $data)
+	{
+		$this->characterFacade->addChar($data->name, $this->getUser()->getId());
+
+		$this->flashMessage('Postava byla úspěšně vytvořena');
+		$this->redirect('Homepage:');
+	}
 
 }

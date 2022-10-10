@@ -20,6 +20,4 @@ final class HomepagePresenter extends Nette\Application\UI\Presenter
     {
         $this->template->profiles = $this->userFacade->getAll();
     }
-
-
 }

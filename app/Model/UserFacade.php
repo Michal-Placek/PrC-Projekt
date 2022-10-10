@@ -59,7 +59,7 @@ final class UserFacade implements Nette\Security\Authenticator
 				self::COLUMN_PASSWORD_HASH => $this->passwords->hash($password),
 			]);
 		}
-
+		$this->database->table(self::TABLE_NAME)->update(['last_online' => date('Y-m-d')]);
 		$arr = $row->toArray();
 		unset($arr[self::COLUMN_PASSWORD_HASH]);
 		return new Nette\Security\SimpleIdentity($row[self::COLUMN_ID], $row[self::COLUMN_ROLE], $arr);
@@ -87,11 +87,14 @@ final class UserFacade implements Nette\Security\Authenticator
 				self::COLUMN_NAME => $username,
 				self::COLUMN_PASSWORD_HASH => $this->passwords->hash($password),
 				self::COLUMN_EMAIL => $email,
+				'created_at' => date('Y-m-d'),
+				'last_online' => date('Y-m-d'),
 			]);
 		} catch (Nette\Database\UniqueConstraintViolationException $e) {
 			throw new DuplicateNameException;
 		}
 	}
+
 	public function update(int $userId, \stdClass $data): void
 	{
 		if ($data->password == null) {
