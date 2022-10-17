@@ -20,13 +20,18 @@ final class CharacterPresenter extends Nette\Application\UI\Presenter
     public function renderDefault()
     {
         $this->template->character = $this->characterFacade->getAllChar();
+		$this->template->isSetCharacter = $this->characterFacade->getCharacterByUserId($this->user()->getId());
     }
+
+	public function renderCreate(){
+
+	}
 
     public function createComponentNewCharacterForm(): Form
 	{
 		$form = new Form;
 		$form->addText('name', 'Jméno Postavy:')
-			->setRequired('Prosím vyplňte jméno posttavy.');
+			->setRequired('Prosím vyplňte jméno postavy.');
 		
 		$form->addSubmit('send', 'Vytvořit');
 		$form->onSuccess[] = [$this, 'onNewCharacterCreated'];
@@ -38,7 +43,10 @@ final class CharacterPresenter extends Nette\Application\UI\Presenter
 		$this->characterFacade->addChar($data->name, $this->getUser()->getId());
 
 		$this->flashMessage('Postava byla úspěšně vytvořena');
-		$this->redirect('Homepage:');
+		$this->redirect('Character:avatar');
 	}
 
+	public function actionEditCharacter($part, $action){
+		
+	}
 }

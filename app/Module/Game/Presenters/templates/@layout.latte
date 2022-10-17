@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-  <link href="{$basePath}/css/front.css" rel="stylesheet">
+  <link href="{$basePath}/css/game.css" rel="stylesheet">
 
 	<title>Dingosh And Barik</title>
 
@@ -24,24 +24,9 @@
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a n:href="Homepage:default" class="homelogo nav-link px-2 text-white"></a></li>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 m-auto">
+          <li><a n:href="Game:default" class="nazev nav-link px-2 text-white"></a></li>
         </ul>
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a n:href="Homepage:default" class="nazev nav-link px-2 text-white"></a></li>
-        </ul>
-
-      <div class="text-end">
-        {if $user->isLoggedIn()}
-		<a n:href="Sign:out"><button type="button" class="btn grep text-light">Odhlásit</button></a>
-		<a n:href="Sign:account"><button type="button" class="btn meloun text-light">Upravit Účet</button></a>
-		{else}
-        <a n:href="Sign:in"><button type="button" class="btn grep text-light">Přihlásit</button></a>
-        <a n:href="Sign:up"><button type="button" class="btn meloun text-light">Registrovat</button></a>
-		{/if}
-
-      </div>
       </div>
     </div>
   </header>
@@ -52,8 +37,14 @@
 	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>
 	{/block}
 </body>
-
-
+<div class="rooms">
+	<a n:href="Game:default">Aréna</a>
+	<br>
+	<a n:href="Game:default">Kasárna</a>
+	<br>
+	<a n:href="Game:default">Obchod</a>
+	<br>
+</div>
       <span class="mb-3 mb-md-0 text-muted footer">© 2022 MiguelBarelGuba, Inc</span>
 
 </html>

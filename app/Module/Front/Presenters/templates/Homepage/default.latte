@@ -3,7 +3,22 @@
 <div class="container">
 <div class="row">
     {if $user->isLoggedIn()}
-    <div class="custom-btn"><a n:href="Character:Create" class=""><img src="{$basePath}/image/create.png" width="380px" style="image-rendering:pixelated;"></a>
+        {if $isSetCharacter}
+
+            <a n:href=":Game:Game:">Hraj nyní!!</a>
+
+                <a><div class="characters">
+                <h2>Jméno: {$character["name"]}</h2>
+                <h2>Peníz: {$character["money"]}</h2>
+                <h2>Zdrav: {$character["health"]}</h2>
+                <h2>Poškoz: {$character["dmg"]}</h2>
+                <h2>Obran: {$character["def"]}</h2>
+                <h2>Obrat: {$character["dex"]}</h2>
+                </div></a>
+            </div>
+        {else}
+            <div class="custom-btn"><a n:href="Character:Create" class=""><img src="{$basePath}/image/create.png" width="380px" style="image-rendering:pixelated;"></a>
+        {/if}
     {else}
     <h1>Přihlaste se prosím</h1>
     {/if}

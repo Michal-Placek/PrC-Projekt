@@ -44,8 +44,30 @@ final class CharacterFacade
 					self::COLUMN_NAME => $name,
 					self::COLUMNT_USERS_ID => $id
 				]);
+
+			$this->database->table('avatar')->insert([
+				'character_id' => $id,
+				'head' => 0,
+				'body' => 0,
+				'eyes' => 0,
+				'hair' => 0,
+				'mouth' => 0,
+				'nose' => 0
+			]);
 		}else{
 			$this->flashMessage('Character with that name already exists');
 		}
+	}
+
+	public function getCharacterExistsByUserId($id){
+		$result = $this->database->table(SELF::TABLE_NAME)->select(SELF::COLUMNT_USERS_ID)->where(SELF::COLUMNT_USERS_ID, $id)->fetch();
+		bdump($result);
+		return $result;
+	}
+
+	public function getCharacterInfoByUserId($id){
+		$result = $this->database->table(SELF::TABLE_NAME)->select('*')->where(SELF::COLUMNT_USERS_ID, $id)->fetch();
+		bdump($result);
+		return $result;
 	}
 }
