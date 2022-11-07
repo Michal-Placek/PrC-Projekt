@@ -30,7 +30,7 @@
       </div>
     </div>
   </header>
-		{include content}
+
 	</div>
 
 	{block scripts}
@@ -38,13 +38,15 @@
 	{/block}
 </body>
 <div class="rooms">
-	<a n:href="Game:default">Aréna</a>
+	<a class="arena nav-link px-2 text-white" n:href="Game:arena"></a>
+	<a class="hospoda nav-link px-2 text-white" n:href="Game:hospoda"></a>
 	<br>
-	<a n:href="Game:default">Kasárna</a>
+	<a class="obchod nav-link px-2 text-white" n:href="Game:obchod"></a>
 	<br>
-	<a n:href="Game:default">Obchod</a>
+	<a class="postava nav-link px-2 text-white" n:href="Game:postava"></a>
 	<br>
 </div>
+<div>{include content}</div>
       <span class="mb-3 mb-md-0 text-muted footer">© 2022 MiguelBarelGuba, Inc</span>
 
 </html>

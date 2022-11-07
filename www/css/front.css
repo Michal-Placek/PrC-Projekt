@@ -1,3 +1,6 @@
+.f-c{clear: both;}
+.margin-auto{margin:auto; width: fit-content;}
+
 .nadpis {
     position: static;
 	float: right;
@@ -75,4 +78,44 @@ body {
     background-image: url("../image/nazev.png");
     background-position: center;
     background-size: cover;
+}
+
+.character-creator-wrapper{
+    width: 20%;
+    margin: auto;
+}
+.character-creator-wrapper span{
+    font-size: 30px;
+}
+.character-creator-wrapper a{
+    font-size: 30px;
+    text-decoration: none;
+}
+.avatar{
+    float: left;
+    margin: auto;
+    width: 15vw;
+    border: 1px white solid;
+    display: grid;
+}
+.avatar img{
+    width: 15vw;
+    grid-area: 1 / 1 / 2 / 2;
+    image-rendering: pixelated;
+}
+
+
+.character-creator-wrapper{
+    width: 50%;
+    margin:auto;
+}
+.top-selector{
+    width: fit-content;
+    margin: auto
+}
+.left-selector{
+    float:left;
+}
+.right-selector{
+    float:left;
 }

@@ -1,34 +1,59 @@
 {block content}
 
-<div>
-    <div class="selector">
-    <a n:href="editCharacter! race +">+</a>
-    <a n:href="editCharacter! race -">-</a>
-
-    <a n:href="editCharacter! +">+</a>
-    <a n:href="editCharacter! -">-</a>
-
-    <a n:href="editCharacter! +">+</a>
-    <a n:href="editCharacter! -">-</a>
-
-    <a n:href="editCharacter! +">+</a>
-    <a n:href="editCharacter! -">-</a>
-
-    <a n:href="editCharacter! +">+</a>
-    <a n:href="editCharacter! -">-</a>
-
-    <a n:href="editCharacter! +">+</a>
-    <a n:href="editCharacter! -">-</a>
-
-    <a n:href="editCharacter! +">+</a>
-    <a n:href="editCharacter! -">-</a>
+<div class="character-creator-wrapper">
+{snippet characterCreator}
+    <div class="top-selector">
+        <a n:href="editCharacter! race, 1">+</a>
+        <span>Rasa</span>
+        <a n:href="editCharacter! race, 0">-</a>
     </div>
-    <div class="avatar">
-    <img src="{$basePath}/image/races/{$race}/body/{$bodyId}" class="image" >
-    <img src="{$basePath}/image/races/{$race}/head/{$headId}" class="image" >
-    <img src="{$basePath}/image/races/{$race}/eyes/{$eyesId}" class="image" >
-    <img src="{$basePath}/image/races/{$race}/hair/{$hairId}" class="image" >
-    <img src="{$basePath}/image/races/{$race}/mouth/{$mouthId}" class="image" >
-    <img src="{$basePath}/image/races/{$race}/nose/{$noseId}" class="image" >
+    <div class="margin-auto">
+        <div class="left-selector">
+            <a n:href="editCharacter! body, 1">+</a>
+            <span>Tělo</span>
+            <a n:href="editCharacter! body, 0">-</a>
+
+            <br>
+
+            <a n:href="editCharacter! eyes, 1">+</a>
+            <span>Oči</span>
+            <a n:href="editCharacter! eyes, 0">-</a>
+
+            <br>
+
+            <a n:href="editCharacter! hair, 1">+</a>
+            <span>Vlasy</span>
+            <a n:href="editCharacter! hair, 0">-</a>
+        </div>
+
+        <div class="avatar">
+            <img src="{$basePath}/image/races/{$race}/body/{$bodyId}.png" class="image" >
+            <img src="{$basePath}/image/races/{$race}/head/{$headId}.png" class="image" >
+            <img src="{$basePath}/image/races/{$race}/eyes/{$eyesId}.png" class="image" >
+            <img src="{$basePath}/image/races/{$race}/hair/{$hairId}.png" class="image" >
+            <img src="{$basePath}/image/races/{$race}/mouth/{$mouthId}.png" class="image" >
+            <img src="{$basePath}/image/races/{$race}/nose/{$noseId}.png" class="image" >
+        </div>
+
+        <div class="right-selector">
+        
+            <a n:href="editCharacter! head, 1">+</a>
+            <span>Hlava</span>
+            <a n:href="editCharacter! head, 0">-</a>
+
+            <br>
+
+            <a n:href="editCharacter! mouth, 1">+</a>
+            <span>Pusa</span>
+            <a n:href="editCharacter! mouth, 0">-</a>
+
+            <br>
+
+            <a n:href="editCharacter! nose, 1">+</a>
+            <span>Nos</span>
+            <a n:href="editCharacter! nose, 0">-</a>
+        </div>
+       <div class="f-c">&nbsp;</div>
     </div>
-</div>KOKOTE
+{/snippet}
+</div>
