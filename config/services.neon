@@ -1,6 +1,7 @@
 services:
 	- App\Model\UserFacade
 	- App\Model\CharacterFacade
+	- App\Model\AvatarFacade
 	- App\Forms\FormFactory
 	- App\Forms\SignInFormFactory
 	- App\Forms\SignUpFormFactory
