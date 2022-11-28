@@ -43,27 +43,37 @@ final class CharacterPresenter extends Nette\Application\UI\Presenter
 
 	public function renderAvatar(){
 		$character = $this->characterFacade->getCharacterInfoByUserId($this->user->id);
+		$avatar = $this->avatarFacade->getAvatarById($character->id);
 		if($character){
-			$this->template->race = 0;
+			bdump($character);
+			bdump($avatar);
+			$this->template->race = $avatar->race;
 
-			$this->template->bodyId = 0;
-			$this->template->headId = 0;
-			$this->template->eyesId = 0;
-			$this->template->hairId = 0;
-			$this->template->mouthId = 0;
-			$this->template->noseId = 0;
+			$this->template->bodyId = $avatar->bodyId;
+			$this->template->headId = $avatar->headId;
+			$this->template->eyesId = $avatar->eyesId;
+			$this->template->hairId = $avatar->hairId;
+			$this->template->mouthId = $avatar->mouthId;
+			$this->template->noseId = $avatar->noseId;
 		}else{
 			$this->characterFacade->setNewCharacter($this->user->id);
 			$this->template->race = 0;
 
 			$this->template->bodyId = 0;
 			$this->template->headId = 0;
+
 			$this->template->eyesId = 0;
 			$this->template->hairId = 0;
 			$this->template->mouthId = 0;
 			$this->template->noseId = 0;
 		}
+	}
 
+	public function handleeditCharacter($part, $action){
+		bdump($this->user->getIdentity()->character);
+		bdump($this->avatarFacade->getPart($this->user->character->id, $part));
+
+		$this->redirect(":Character:avatar");
 	}
 
 	public function onNewCharacterCreated(Form $form, \stdClass $data)
@@ -72,12 +82,5 @@ final class CharacterPresenter extends Nette\Application\UI\Presenter
 
 		$this->flashMessage('Postava byla úspěšně vytvořena');
 		$this->redirect('Character:avatar');
-	}
-
-	public function handleeditCharacter($part, $action){
-		bdump($this->user->getIdentity()->character);
-		bdump($this->avatarFacade->getPart($this->user->character->id, $part));
-
-		$this->redrawControl('characterCreator');
 	}
 }

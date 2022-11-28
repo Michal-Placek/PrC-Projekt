@@ -63,13 +63,13 @@ final class CharacterFacade
 
 	public function getCharacterExistsByUserId($id){
 		$result = $this->database->table(SELF::TABLE_NAME)->select(SELF::COLUMNT_USERS_ID)->where(SELF::COLUMNT_USERS_ID, $id)->fetch();
-		bdump($result);
+
 		return $result;
 	}
 
 	public function getCharacterInfoByUserId($id){
 		$result = $this->database->table(SELF::TABLE_NAME)->select('*')->where(SELF::COLUMNT_USERS_ID, $id)->fetch();
-		bdump($result);
+
 		return $result;
 	}
 
@@ -79,7 +79,7 @@ final class CharacterFacade
 				SELF::COLUMNT_USERS_ID => $id,
 
 			]);
-		bdump($result);
+
 		return $result;
 	}
 }

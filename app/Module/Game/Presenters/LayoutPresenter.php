@@ -24,6 +24,6 @@ abstract class BasePresenter extends Nette\Application\UI\Presenter
 
     public function beforeRender(){
         parent::beforeRender();
-        $this->template->characterInfo = $this->characterFacade->getCharacterInfoByUserId($this->user->getId());;
+        //$this->template->characterInfo = $this->characterFacade->getCharacterInfoByUserId($this->user->getId());;
     }
 }

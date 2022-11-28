@@ -8,21 +8,64 @@ use Nette;
 use App\Model\characterFacade;
 use App\Model\UserFacade;
 use Nette\Application\UI\Form;
+use App\Model\avatarFacade;
 
 
 final class GamePresenter extends BasePresenter
 {
     use RequireLoggedUser;
 
-    public function renderPostava(){
-		$this->template->race = 0;
+	private characterFacade $characterFacade;
+	private avatarFacade $avatarFacade;
 
-		$this->template->bodyId = 0;
-		$this->template->headId = 0;
-		$this->template->eyesId = 0;
-		$this->template->hairId = 0;
-		$this->template->mouthId = 0;
-		$this->template->noseId = 0;
+	public function __construct(characterFacade $characterFacade, avatarFacade $avatarFacade)
+	{
+		$this->characterFacade = $characterFacade;
+		$this->avatarFacade = $avatarFacade;
+	}
+
+    public function renderPostava(){
+
+		$character = $this->characterFacade->getCharacterInfoByUserId($this->user->id);
+		
+		$this->template->characterInfo = $character;
+		
+		$avatar = $this->avatarFacade->getAvatarById($character->id);
+		if($avatar){
+			bdump($character);
+			bdump($avatar);
+			$this->template->race = $avatar->race;
+
+			$this->template->bodyId = $avatar->body;
+			$this->template->headId = $avatar->head;
+			$this->template->eyesId = $avatar->eyes;
+			$this->template->hairId = $avatar->hair;
+			$this->template->mouthId = $avatar->mouth;
+			$this->template->noseId = $avatar->nose;
+		}else{
+			$this->avatarFacade->setNewAvatar($character->id);
+			$this->template->race = 0;
+
+			$this->template->bodyId = 0;
+			$this->template->headId = 0;
+
+			$this->template->eyesId = 0;
+			$this->template->hairId = 0;
+			$this->template->mouthId = 0;
+			$this->template->noseId = 0;
+		}
+	}
+
+	public function handleeditCharacter($part, $action){
+
+		$characterId = $this->characterFacade->getCharacterInfoByUserId($this->user->id)->id;
+		bdump($characterId);
+		$partId = $this->avatarFacade->getPart($characterId, $part);
+		bdump($partId->$part);
+
+		$this->avatarFacade->setPart($this->user->id, $part, $partId);
+
+		$this->redirect(":Character:avatar");
 	}
 
 	public function onNewCharacterCreated(Form $form, \stdClass $data)
@@ -33,7 +76,7 @@ final class GamePresenter extends BasePresenter
 		$this->redirect('Character:avatar');
 	}
 
-	public function handleeditCharacter($part, $action){
+	/*public function handleeditCharacter($part, $action){
 		
 		switch($part){
 
@@ -93,7 +136,7 @@ final class GamePresenter extends BasePresenter
 	
 		}
 		$this->redrawControl('characterCreator');
-	}
+	}*/
 
 	public function createComponentAvatarForm() : Form
 	{
